@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from '../logo.svg';
+import '../css/App.css';
 import Button from '@material-ui/core/Button';
 
 function App() {
