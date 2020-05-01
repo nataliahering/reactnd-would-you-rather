@@ -1,8 +1,16 @@
+/*
+users: {
+  userId: { id, name, avatar, answers: { questionId: 1/2 }, questions: [questionIDs]}
+},
+questions: { id, author, timestamp, option1: { votes: [users], text }, option2: { votes: [users], textt}},
+authedUser: userId
+*/
+
 let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: ,
+    avatarURL: 'https://api.adorable.io/avatars/200/8c77e0a900f9e25eccdffe6ff784c17c.png',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -14,7 +22,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: ,
+    avatarURL: 'https://api.adorable.io/avatars/200/a22a551dca8e920d2b5c452c4e14c2ec.png',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,7 +32,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: ,
+    avatarURL: 'https://api.adorable.io/avatars/200/ef2e79f1ab1c4fbff99bd17f87701784.png',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
