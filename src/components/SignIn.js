@@ -47,11 +47,6 @@ export default function SignIn(props) {
     setUserName(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    props.history.push(`/leaderboard`)
-  };
-
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -88,6 +83,7 @@ export default function SignIn(props) {
             variant="contained"
             color="primary"
             className={classes.submit}
+            disabled={!userName}
           >
             Sign In
           </Button>
