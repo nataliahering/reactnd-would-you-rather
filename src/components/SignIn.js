@@ -10,8 +10,9 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { setAuthedUser } from '../actions/authedUser';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -39,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn(props) {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const userNames = useSelector(state => Object.keys(state.users));
   const [userName, setUserName] = useState('');
   const history = useHistory();
@@ -46,6 +48,14 @@ export default function SignIn(props) {
   const handleChange = (e) => {
     setUserName(e.target.value);
   };
+
+  const handleSubmit = (e) => {
+    if (!userName) {
+      return;
+    }
+    dispatch(setAuthedUser(userName));
+    history.push('/leaderboard')
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -59,7 +69,7 @@ export default function SignIn(props) {
         </Typography>
         <form 
           className={classes.form}
-          onSubmit={() => history.push('/leaderboard')}
+          onSubmit={handleSubmit}
           noValidate
         >
           <FormControl className={classes.formControl}>
