@@ -13,22 +13,23 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+function mapUsersToUserScores(users) {
+  return Object.values(users).map(user => {
+    return {
+      id: user.id,
+      name: user.name,
+      avatar: user.avatarURL,
+      numberOfAnswers: Object.keys(user.answers).length,
+      numberOfQuestions: user.questions.length
+    }
+  }).sort((user1, user2) => (
+    (user2.numberOfAnswers + user2.numberOfQuestions) - (user1.numberOfAnswers + user1.numberOfQuestions)
+  ))
+}
+
 export default function LeaderBoard() {
   const classes = useStyles();
-  const userScores = useSelector(state => {
-    var { users } = state;
-    return Object.values(users).map(user => {
-        return {
-          id: user.id,
-          name: user.name,
-          avatar: user.avatarURL,
-          numberOfAnswers: Object.keys(user.answers).length,
-          numberOfQuestions: user.questions.length
-        }
-      }).sort((user1, user2) => (
-        (user2.numberOfAnswers + user2.numberOfQuestions) - (user1.numberOfAnswers + user1.numberOfQuestions)
-      ))
-    });
+  const userScores = useSelector(state => mapUsersToUserScores(state.users));
 
   return (
     <List className={classes.root}>
