@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -25,7 +25,7 @@ export default function UserScore(props) {
       <ListItemText
         primary={props.userScore.name}
         secondary={
-          <React.Fragment>
+          <Fragment>
             <List component="nav" aria-label="secondary mailbox folders">
               <ListItem>
                 <Typography
@@ -58,7 +58,7 @@ export default function UserScore(props) {
                 </Typography>
               </ListItem>
             </List>
-          </React.Fragment>
+          </Fragment>
         }
       />
     </ListItem>

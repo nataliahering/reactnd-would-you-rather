@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -6,6 +6,11 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import { useSelector } from 'react-redux';
+import { pick } from 'lodash';
+import PreviewQuestion from './PreviewQuestion';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -47,9 +52,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function groupQuestions({ questions, authedUser }) {
+  //TODO update
+  authedUser = 'tylermcginnis'
+  let answeredQuestions = [];
+  let unansweredQuestions = [];
+  const propertiesToPick = ['id', 'author', 'timestamp'];
+
+  Object.values(questions).forEach(question => {
+    if (question.optionOne.votes.includes(authedUser) || question.optionTwo.votes.includes(authedUser)) {
+      answeredQuestions.push(pick(question, propertiesToPick))
+    } else {
+      unansweredQuestions.push(pick(question, propertiesToPick))
+    }
+  });
+  answeredQuestions = answeredQuestions.sort((q1, q2) => q2.timestamp - q1.timestamp);
+  unansweredQuestions = unansweredQuestions.sort((q1, q2) => q2.timestamp - q1.timestamp);
+  
+  return { answeredQuestions, unansweredQuestions }
+}
+
 export default function Home() {
   const classes = useStyles();
   const [value, setValue] = React.useState(1);
+  const { answeredQuestions, unansweredQuestions } = useSelector(
+    state => groupQuestions({ questions: state.questions, authedUser: state.authedUser })
+    );
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -63,17 +91,34 @@ export default function Home() {
           onChange={handleChange}
           aria-label="simple tabs example"
           indicatorColor="primary"
-          centered="true"
           >
           <Tab label="Answered Questions" {...a11yProps(0)} />
           <Tab label="Unanswered Questions" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        Answered Questions
+        <List className={classes.root}>
+        {answeredQuestions.map(q => {
+          return (
+            <Fragment>
+              <PreviewQuestion id={q.id} />
+              <Divider variant="inset" component="li" />
+            </Fragment>
+          );
+        })}
+        </List>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Unanswered Questions
+        <List className={classes.root}>
+        {unansweredQuestions.map(q => {
+          return (
+            <Fragment>
+              <PreviewQuestion id={q.id} />
+              <Divider variant="inset" component="li" />
+            </Fragment>
+          );
+        })}
+        </List>
       </TabPanel>
     </div>
   );
