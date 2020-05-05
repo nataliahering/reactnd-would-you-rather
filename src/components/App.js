@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SignIn from './SignIn'
 import LeaderBoard from './LeaderBoard'
+import NewQuestion from './NewQuestion'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
@@ -13,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route path='/' exact component={SignIn} />
+        <Route path='/' exact component={NewQuestion} />
         {this.props.signedIn ? (<Route path='/leaderboard' component={LeaderBoard} />) : (<Route path='/leaderboard' component={SignIn} />)}
       </Router>
     )

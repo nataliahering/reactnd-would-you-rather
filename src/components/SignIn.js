@@ -50,6 +50,7 @@ export default function SignIn(props) {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault()
     if (!userName) {
       return;
     }
