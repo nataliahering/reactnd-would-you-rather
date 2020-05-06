@@ -6,11 +6,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { useSelector } from 'react-redux';
-import { pick } from 'lodash';
-import PreviewQuestion from './PreviewQuestion';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
+import PreviewQuestionList from './PreviewQuestionList';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -52,32 +48,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function groupQuestions({ questions, authedUser }) {
-  //TODO update
-  authedUser = 'tylermcginnis'
-  let answeredQuestions = [];
-  let unansweredQuestions = [];
-  const propertiesToPick = ['id', 'author', 'timestamp'];
-
-  Object.values(questions).forEach(question => {
-    if (question.optionOne.votes.includes(authedUser) || question.optionTwo.votes.includes(authedUser)) {
-      answeredQuestions.push(pick(question, propertiesToPick))
-    } else {
-      unansweredQuestions.push(pick(question, propertiesToPick))
-    }
-  });
-  answeredQuestions = answeredQuestions.sort((q1, q2) => q2.timestamp - q1.timestamp);
-  unansweredQuestions = unansweredQuestions.sort((q1, q2) => q2.timestamp - q1.timestamp);
-  
-  return { answeredQuestions, unansweredQuestions }
-}
-
 export default function Home() {
   const classes = useStyles();
   const [value, setValue] = React.useState(1);
-  const { answeredQuestions, unansweredQuestions } = useSelector(
-    state => groupQuestions({ questions: state.questions, authedUser: state.authedUser })
-    );
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -97,28 +70,10 @@ export default function Home() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <List className={classes.root}>
-        {answeredQuestions.map(q => {
-          return (
-            <Fragment>
-              <PreviewQuestion id={q.id} />
-              <Divider variant="inset" component="li" />
-            </Fragment>
-          );
-        })}
-        </List>
+        <PreviewQuestionList category='answered'/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <List className={classes.root}>
-        {unansweredQuestions.map(q => {
-          return (
-            <Fragment>
-              <PreviewQuestion id={q.id} />
-              <Divider variant="inset" component="li" />
-            </Fragment>
-          );
-        })}
-        </List>
+        <PreviewQuestionList category='unanswered'/>
       </TabPanel>
     </div>
   );

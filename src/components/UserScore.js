@@ -25,11 +25,9 @@ export default function UserScore(props) {
       <ListItemText
         primary={props.userScore.name}
         secondary={
-          <Fragment>
-            <List component="nav" aria-label="secondary mailbox folders">
+            <List aria-label="secondary mailbox folders">
               <ListItem>
                 <Typography
-                  component="span"
                   variant="body2"
                   className={classes.inline}
                   color="textPrimary"
@@ -39,7 +37,6 @@ export default function UserScore(props) {
               </ListItem>
               <ListItem>
                 <Typography
-                  component="span"
                   variant="body2"
                   className={classes.inline}
                   color="textPrimary"
@@ -49,7 +46,6 @@ export default function UserScore(props) {
               </ListItem>
               <ListItem>
                 <Typography
-                  component="span"
                   variant="body1"
                   className={classes.inline}
                   color="textPrimary"
@@ -58,7 +54,6 @@ export default function UserScore(props) {
                 </Typography>
               </ListItem>
             </List>
-          </Fragment>
         }
       />
     </ListItem>

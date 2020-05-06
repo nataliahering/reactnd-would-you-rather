@@ -35,7 +35,7 @@ export default function LeaderBoard() {
     <List className={classes.root}>
       {userScores.map(userScore => {
         return (
-          <Fragment>
+          <Fragment key={userScore.id}>
             <UserScore userScore={userScore} />
             <Divider variant="inset" component="li" />
           </Fragment>
