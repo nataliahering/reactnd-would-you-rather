@@ -21,7 +21,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3}>
-          <Typography>{children}</Typography>
+          <Typography component="span">{children}</Typography>
         </Box>
       )}
     </div>
@@ -69,10 +69,10 @@ export default function Home() {
           <Tab label="Unanswered Questions" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0}>
+      <TabPanel component="div" value={value} index={0}>
         <PreviewQuestionList category='answered'/>
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel component="div" value={value} index={1}>
         <PreviewQuestionList category='unanswered'/>
       </TabPanel>
     </div>

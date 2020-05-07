@@ -7,11 +7,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    maxWidth: '36ch',
-    backgroundColor: theme.palette.background.paper,
-  },
   block: {
     display: 'block',
   },
@@ -46,6 +41,7 @@ export default function UserScore(props) {
               Created Questions: {props.userScore.numberOfQuestions}
             </Typography>
             <Typography
+              component="span"
               variant="body1"
               className={classes.block}
               color="textPrimary"

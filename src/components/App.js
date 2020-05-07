@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route path='/' exact component={LeaderBoard} />
+        <Route path='/' exact component={Home} />
         <Route path='/add' component={NewQuestion} />
         {this.props.signedIn ? (<Route path='/leaderboard' component={LeaderBoard} />) : (<Route path='/leaderboard' component={SignIn} />)}
       </Router>
