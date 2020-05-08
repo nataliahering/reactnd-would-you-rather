@@ -92,6 +92,5 @@ export default function QuestionResults(props) {
       </Typography>
       <Divider variant="inset"/>
     </Fragment>
-
   );
 }

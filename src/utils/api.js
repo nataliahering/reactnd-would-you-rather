@@ -1,7 +1,8 @@
 import {
   _getUsers,
   _getQuestions,
-  _saveQuestion
+  _saveQuestion,
+  _saveQuestionAnswer
 } from './_DATA.js'
 
 export function getUsers () {
@@ -20,4 +21,8 @@ export function getInitialData () {
 
 export function saveQuestion ({ optionOneText, optionTwoText, author }) {
   return _saveQuestion({ optionOneText, optionTwoText, author });
+}
+
+export function saveQuestionAnswer ({ authedUser, questionId, vote }) {
+  return _saveQuestionAnswer({ authedUser, qid: questionId, answer: vote });
 }

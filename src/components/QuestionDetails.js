@@ -50,7 +50,7 @@ export default function QuestionDetails(props) {
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Asked by {author}
         </Typography>
-        { hasReplied ? <QuestionResults id={questionId}/> : <VoteQuestion />}
+        { hasReplied ? <QuestionResults id={questionId}/> : <VoteQuestion id={questionId}/>}
       </CardContent>
     </Card>
   );

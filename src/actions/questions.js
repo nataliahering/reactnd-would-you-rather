@@ -1,6 +1,7 @@
 export const ADD_QUESTION = 'ADD_QUESTION'
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
-const { saveQuestion } = require('../utils/api')
+export const VOTE_QUESTION = 'VOTE_QUESTION'
+const { saveQuestion, saveQuestionAnswer } = require('../utils/api')
 
 export function receiveQuestions(questions) {
   return {
@@ -19,6 +20,7 @@ function addQuestion (question) {
 export function handleAddQuestion({ questionOne, questionTwo }) {
   return (dispatch, getState) => {
     const { authedUser } = getState()
+    //TODO: update author
 
     return saveQuestion({
       optionOneText: questionOne,
@@ -26,6 +28,34 @@ export function handleAddQuestion({ questionOne, questionTwo }) {
       author: 'tylermcginnis'
     }).then((question) => {
       dispatch(addQuestion(question));
+    });
+  }
+}
+
+function voteQuestion({ questionId, vote, author }) {
+  return {
+    type: VOTE_QUESTION,
+    questionId,
+    vote,
+    author
+  }
+}
+
+export function handleVoteQuestion({ questionId, vote }) {
+  return (dispatch, getState) => {
+    //const { authedUser } = getState()
+    //TODO: update autheduser
+    //TODO: error handling
+
+    const authedUser = 'tylermcginnis'
+    return saveQuestionAnswer({
+      questionId,
+      vote,
+      authedUser
+    }).then(() => {
+      dispatch(voteQuestion({
+        questionId, vote, author: authedUser
+      }));
     });
   }
 }
