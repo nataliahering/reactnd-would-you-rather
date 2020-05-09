@@ -8,19 +8,6 @@ import StarIcon from '@material-ui/icons/Star'
 import Grid from '@material-ui/core/Grid'
 
 const useStyles = makeStyles({
-  root: {
-    minWidth: 275,
-  },
-  question: {
-    variant: 'h5',
-    component: 'h2',
-    align: 'center'
-  },
-  results: {
-    variant: 'h5',
-    component: 'h2',
-    align: 'right'
-  },
   title: {
     marginBottom: 12,
   },

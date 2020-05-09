@@ -1,11 +1,3 @@
-/*
-users: {
-  userId: { id, name, avatar, answers: { questionId: 1/2 }, questions: [questionIDs]}
-},
-questions: { id, author, timestamp, option1: { votes: [users], text }, option2: { votes: [users], textt}},
-authedUser: userId
-*/
-
 let users = {
   sarahedo: {
     id: 'sarahedo',
@@ -13,7 +5,7 @@ let users = {
     avatarURL: 'https://api.adorable.io/avatars/200/8c77e0a900f9e25eccdffe6ff784c17c.png',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
-      "6ni6ok3ym7mf1p33lnez": 'optionTwo',
+      "6ni6ok3ym7mf1p33lnez": 'optionOne',
       "am8ehyc8byjqgar0jgpub9": 'optionTwo',
       "loxhs1bqm25b708cmbf3g": 'optionTwo'
     },
@@ -36,7 +28,7 @@ let users = {
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
-      "6ni6ok3ym7mf1p33lnez": 'optionTwo'
+      "6ni6ok3ym7mf1p33lnez": 'optionOne'
     },
     questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
   }
@@ -66,7 +58,7 @@ let questions = {
     },
     optionTwo: {
       votes: ['johndoe', 'sarahedo'],
-      text: 'become a supervillain'
+      text: 'become a supervillian'
     }
   },
   "am8ehyc8byjqgar0jgpub9": {
@@ -113,7 +105,7 @@ let questions = {
     author: 'johndoe',
     timestamp: 1493579767190,
     optionOne: {
-      votes: ['johndoe', 'sarahedo'],
+      votes: ['johndoe'],
       text: 'write JavaScript',
     },
     optionTwo: {
@@ -158,7 +150,7 @@ function formatQuestion ({ optionOneText, optionTwoText, author }) {
 export function _saveQuestion (question) {
   return new Promise((res, rej) => {
     const authedUser = question.author;
-    const formattedQuestion = formatQuestion(question);
+    const formattedQuestion = formatQuestion(question)
 
     setTimeout(() => {
       questions = {

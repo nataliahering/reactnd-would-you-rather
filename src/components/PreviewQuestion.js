@@ -10,9 +10,6 @@ const useStyles = makeStyles((theme) => ({
   block: {
     display: 'block',
   },
-  inline: {
-    display: 'inline',
-  },
   link: {
     textDecoration: 'none'
   }
