@@ -30,7 +30,7 @@ export default function users (state = {}, action) {
           ...state[action.author],
           answers: {
             ...state[action.author].answers,
-            [action.questionId]: action.answer
+            [action.questionId]: action.vote
           }
         }
       }

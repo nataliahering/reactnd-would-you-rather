@@ -20,7 +20,7 @@ export default function questions (state = {}, action) {
           ...state[action.questionId],
           [action.vote]: {
             ...state[action.questionId][action.vote],
-            votes: state[action.questionId][action.vote].votes.concat([action.authedUser])
+            votes: state[action.questionId][action.vote].votes.concat([action.author])
           }
         }
       }

@@ -9,7 +9,7 @@ import { useHistory } from 'react-router-dom'
 import MenuItem from '@material-ui/core/MenuItem'
 import Menu from '@material-ui/core/Menu'
 import { useSelector } from 'react-redux'
-import LogOut from './LogOut'
+import UserMenu from './UserMenu'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -83,7 +83,7 @@ export default function Nav() {
                 <MenuItem onClick={handleLeaderboardClicked}>Leaderboard</MenuItem>
                 <MenuItem onClick={handleAddQuestionClicked}>Add Question</MenuItem>
               </Menu>
-              <LogOut />
+              <UserMenu />
             </Fragment>
           }
         </Toolbar>
