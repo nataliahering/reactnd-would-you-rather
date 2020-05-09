@@ -1,14 +1,14 @@
-import React, { useState, Fragment } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import { useHistory } from 'react-router-dom';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import { useSelector } from 'react-redux';
+import React, { useState, Fragment } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu'
+import { useHistory } from 'react-router-dom'
+import MenuItem from '@material-ui/core/MenuItem'
+import Menu from '@material-ui/core/Menu'
+import { useSelector } from 'react-redux'
 import LogOut from './LogOut'
 
 const useStyles = makeStyles((theme) => ({
@@ -21,14 +21,14 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
-}));
+}))
 
 export default function Nav() {
-  const history = useHistory();
-  const classes = useStyles();
-  const [menuAnchorEl, setMenuAnchorEl] = useState(null);
-  const [pageTitle, setPageTitle] = useState('Home');
-  const isLoggedIn = useSelector(state => state.authedUser !== null);
+  const history = useHistory()
+  const classes = useStyles()
+  const [menuAnchorEl, setMenuAnchorEl] = useState(null)
+  const [pageTitle, setPageTitle] = useState('Home')
+  const isLoggedIn = useSelector(state => state.authedUser !== null)
 
   const closeMenu = () => {
     setMenuAnchorEl(null);
@@ -89,5 +89,5 @@ export default function Nav() {
         </Toolbar>
       </AppBar>
     </div>
-  );
+  )
 }

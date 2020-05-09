@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { useSelector } from 'react-redux';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import Divider from '@material-ui/core/Divider';
-import StarIcon from '@material-ui/icons/Star';
-import Grid from '@material-ui/core/Grid';
+import React, { Fragment } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import { useSelector } from 'react-redux'
+import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
+import Divider from '@material-ui/core/Divider'
+import StarIcon from '@material-ui/icons/Star'
+import Grid from '@material-ui/core/Grid'
 
 const useStyles = makeStyles({
   root: {
@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   title: {
     marginBottom: 12,
   },
-});
+})
 
 function renderYourReply() {
   return (
@@ -37,8 +37,8 @@ function renderYourReply() {
 }
 
 function getData(state, props) {
-  const { optionOne, optionTwo } = state.questions[props.id];
-  const totalVotes = optionOne.votes.length + optionTwo.votes.length;
+  const { optionOne, optionTwo } = state.questions[props.id]
+  const totalVotes = optionOne.votes.length + optionTwo.votes.length
   const q1 = {
     text: optionOne.text,
     votes: optionOne.votes.length,
@@ -60,8 +60,8 @@ function getData(state, props) {
 }
 
 export default function QuestionResults(props) {
-  const classes = useStyles();
-  const { q1, q2, authedUserVote, totalVotes } = useSelector(state => getData(state, props));
+  const classes = useStyles()
+  const { q1, q2, authedUserVote, totalVotes } = useSelector(state => getData(state, props))
 
   return (
     <Fragment>
@@ -92,5 +92,5 @@ export default function QuestionResults(props) {
       </Typography>
       <Divider variant='inset'/>
     </Fragment>
-  );
+  )
 }

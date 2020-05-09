@@ -1,24 +1,24 @@
-import React, { Fragment } from 'react';
-import { useSelector } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
-import { pick } from 'lodash';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import PreviewQuestion from './PreviewQuestion';
+import React, { Fragment } from 'react'
+import { useSelector } from 'react-redux'
+import { makeStyles } from '@material-ui/core/styles'
+import { pick } from 'lodash'
+import List from '@material-ui/core/List'
+import Divider from '@material-ui/core/Divider'
+import PreviewQuestion from './PreviewQuestion'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
   },
-}));
+}))
 
 function filterQuestions({ questions, authedUser, category }) {
-  let filteredQuestions = [];
-  const propertiesToPick = ['id', 'timestamp'];
+  let filteredQuestions = []
+  const propertiesToPick = ['id', 'timestamp']
 
   Object.values(questions).forEach(question => {
-    const hasAnswered = question.optionOne.votes.includes(authedUser) || question.optionTwo.votes.includes(authedUser);
+    const hasAnswered = question.optionOne.votes.includes(authedUser) || question.optionTwo.votes.includes(authedUser)
     switch(category) {
       case 'answered' :
         if (hasAnswered) {
@@ -33,16 +33,16 @@ function filterQuestions({ questions, authedUser, category }) {
       default :
         return filteredQuestions
     }
-  });
+  })
   
-  return filteredQuestions.sort((q1, q2) => q2.timestamp - q1.timestamp);
+  return filteredQuestions.sort((q1, q2) => q2.timestamp - q1.timestamp)
 }
 
 export default function PreviewQuestionList(props) {
-  const classes = useStyles();
+  const classes = useStyles()
   const questions = useSelector(
     state => filterQuestions({ questions: state.questions, authedUser: state.authedUser, category: props.category })
-    );
+    )
 
   return (
     <List className={classes.root}>
@@ -55,5 +55,5 @@ export default function PreviewQuestionList(props) {
         );
       })}
     </List>
-  );
+  )
 }

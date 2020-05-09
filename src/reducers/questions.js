@@ -3,7 +3,7 @@ import { ADD_QUESTION, RECEIVE_QUESTIONS, VOTE_QUESTION } from '../actions/quest
 export default function questions (state = {}, action) {
   switch(action.type) {
     case ADD_QUESTION :
-      const { question } = action;
+      const { question } = action
       return {
         ...state,
         [question.id]: question

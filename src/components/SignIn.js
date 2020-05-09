@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { setAuthedUser } from '../actions/authedUser';
+import React, { useState } from 'react'
+import Avatar from '@material-ui/core/Avatar'
+import Button from '@material-ui/core/Button'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import FormControl from '@material-ui/core/FormControl'
+import InputLabel from '@material-ui/core/InputLabel'
+import Select from '@material-ui/core/Select'
+import MenuItem from '@material-ui/core/MenuItem'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
+import Typography from '@material-ui/core/Typography'
+import { makeStyles } from '@material-ui/core/styles'
+import Container from '@material-ui/core/Container'
+import { useSelector, useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { setAuthedUser } from '../actions/authedUser'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -36,18 +36,18 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     minWidth: 296,
   }
-}));
+}))
 
 export default function SignIn(props) {
-  const classes = useStyles();
-  const dispatch = useDispatch();
-  const userNames = useSelector(state => Object.keys(state.users));
-  const [userName, setUserName] = useState('');
-  const history = useHistory();
+  const classes = useStyles()
+  const dispatch = useDispatch()
+  const userNames = useSelector(state => Object.keys(state.users))
+  const [userName, setUserName] = useState('')
+  const history = useHistory()
 
   const handleChange = (e) => {
     setUserName(e.target.value);
-  };
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -101,5 +101,5 @@ export default function SignIn(props) {
         </form>
       </div>
     </Container>
-  );
+  )
 }

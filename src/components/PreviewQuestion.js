@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
-import { useSelector } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
-import ListItem from '@material-ui/core/ListItem';
-import Typography from '@material-ui/core/Typography';
-import ListItemText from '@material-ui/core/ListItemText';
+import React, { Fragment } from 'react'
+import { useSelector } from 'react-redux'
+import { makeStyles } from '@material-ui/core/styles'
+import ListItem from '@material-ui/core/ListItem'
+import Typography from '@material-ui/core/Typography'
+import ListItemText from '@material-ui/core/ListItemText'
 import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
@@ -16,14 +16,14 @@ const useStyles = makeStyles((theme) => ({
   link: {
     textDecoration: 'none'
   }
-}));
+}))
 
 export default function PreviewQuestion(props) {
-  const classes = useStyles();
+  const classes = useStyles()
 
   const question = useSelector(
     state => state.questions[props.id]
-    );
+    )
 
   return (
     <Link className={classes.link} to={`/questions/${question.id}`}>
@@ -52,5 +52,5 @@ export default function PreviewQuestion(props) {
         />
       </ListItem>
     </Link>
-  );
+  )
 }

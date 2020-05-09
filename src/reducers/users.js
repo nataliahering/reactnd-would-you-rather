@@ -9,7 +9,7 @@ export default function users (state = {}, action) {
         ...action.users
       }
     case ADD_QUESTION:
-      const { question } = action;
+      const { question } = action
       if (!question.author) {
         return state
       }

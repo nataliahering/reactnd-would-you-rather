@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react'
+import Button from '@material-ui/core/Button'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import TextField from '@material-ui/core/TextField'
+import Typography from '@material-ui/core/Typography'
+import { makeStyles } from '@material-ui/core/styles'
+import Container from '@material-ui/core/Container'
+import { useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { handleAddQuestion } from '../actions/questions';
+import { handleAddQuestion } from '../actions/questions'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -27,9 +27,9 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     minWidth: 296,
   }
-}));
+}))
 
-export default function NewQuestion(props) {
+export default function NewQuestion() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const [questionOne, setQuestionOne] = useState('');
@@ -122,5 +122,5 @@ export default function NewQuestion(props) {
         </form>
       </div>
     </Container>
-  );
+  )
 }

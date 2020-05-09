@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react';
-import { useSelector } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
+import React, { Fragment } from 'react'
+import { useSelector } from 'react-redux'
+import { makeStyles } from '@material-ui/core/styles'
+import List from '@material-ui/core/List'
+import Divider from '@material-ui/core/Divider'
 import UserScore from './UserScore'
 
 const useStyles = makeStyles((theme) => ({
@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '36ch',
     backgroundColor: theme.palette.background.paper,
   }
-}));
+}))
 
 function mapUsersToUserScores(users) {
   return Object.values(users).map(user => {
@@ -28,8 +28,8 @@ function mapUsersToUserScores(users) {
 }
 
 export default function LeaderBoard() {
-  const classes = useStyles();
-  const userScores = useSelector(state => mapUsersToUserScores(state.users));
+  const classes = useStyles()
+  const userScores = useSelector(state => mapUsersToUserScores(state.users))
 
   return (
     <List className={classes.root}>
@@ -42,5 +42,5 @@ export default function LeaderBoard() {
         );
       })}
     </List>
-  );
+  )
 }
