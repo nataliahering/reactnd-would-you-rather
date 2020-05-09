@@ -4,11 +4,13 @@ import LeaderBoard from './LeaderBoard'
 import NewQuestion from './NewQuestion'
 import QuestionDetails from './QuestionDetails'
 import Home from './Home'
+import PrivateRoute from './PrivateRoute'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { isEmpty } from 'lodash'
 import LoadingBar from 'react-redux-loading'
+import Nav from './Nav'
 
 class App extends Component {
   componentDidMount() {
@@ -20,13 +22,18 @@ class App extends Component {
       <Router>
         <Fragment>
           <LoadingBar />
-          {this.props.loading === true ? null :
-          <div>
-            <Route path='/' exact component={QuestionDetails} />
-            <Route path='/add' component={NewQuestion} />
-            <Route path='/questions/:question_id' component={QuestionDetails} />
-            {this.props.signedIn ? (<Route path='/leaderboard' component={LeaderBoard} />) : (<Route path='/leaderboard' component={SignIn} />)}
-          </div>}
+          <div className='container'>
+            <Nav />
+            {this.props.loading === true ? null :
+            <div>
+              <Route path='/signin' component={SignIn} />
+              <PrivateRoute exact path='/add' component={NewQuestion} />
+              <PrivateRoute exact path='/questions/:question_id' component={QuestionDetails} />
+              <PrivateRoute exact path='/leaderboard' component={LeaderBoard} />
+              <PrivateRoute exact path='/home' component={Home} />
+              <PrivateRoute path='/' exact component={Home} />
+            </div>}
+          </div>
         </Fragment>
       </Router>
     )

@@ -55,7 +55,7 @@ export default function SignIn(props) {
       return;
     }
     dispatch(setAuthedUser(userName));
-    history.push('/leaderboard')
+    history.push('/home')
   }
 
   return (
