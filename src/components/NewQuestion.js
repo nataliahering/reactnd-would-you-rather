@@ -58,10 +58,10 @@ export default function NewQuestion(props) {
   }
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component='main' maxWidth='xs'>
       <CssBaseline />
       <div className={classes.paper}>
-        <Typography component="h1" variant="h4" color="secondary">
+        <Typography component='h1' variant='h4' color='secondary'>
           Create new question
         </Typography>
         <form 
@@ -71,10 +71,10 @@ export default function NewQuestion(props) {
         >
           <div className={classes.formControl}>
             <Typography
-              component="span"
-              variant="h6"
+              component='span'
+              variant='h6'
               className={classes.formControl}
-              color="textPrimary"
+              color='textPrimary'
             >
               Would you rather...?
             </Typography>
@@ -82,12 +82,12 @@ export default function NewQuestion(props) {
           <div>
             <TextField
               className={classes.formControl}
-              id="first-question"
-              label="First Question"
-              variant="outlined"
-              color="secondary"
+              id='first-question'
+              label='First Question'
+              variant='outlined'
+              color='secondary'
               required
-              rowsMax="3"
+              rowsMax='3'
               inputProps={{
                 maxLength: 80
               }}
@@ -97,12 +97,12 @@ export default function NewQuestion(props) {
           <div>
             <TextField
               className={classes.formControl}
-              id="second-question"
-              label="Second Question"
-              variant="outlined"
-              color="secondary"
+              id='second-question'
+              label='Second Question'
+              variant='outlined'
+              color='secondary'
               required
-              rowsMax="3"
+              rowsMax='3'
               inputProps={{
                 maxLength: 80
               }}
@@ -110,10 +110,10 @@ export default function NewQuestion(props) {
             />
           </div>
           <Button
-            type="submit"
+            type='submit'
             fullWidth
-            variant="contained"
-            color="secondary"
+            variant='contained'
+            color='secondary'
             className={classes.submit}
             disabled={!questionOne || !questionTwo}
           >

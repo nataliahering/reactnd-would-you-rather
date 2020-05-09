@@ -29,7 +29,7 @@ const useStyles = makeStyles({
 function renderYourReply() {
   return (
     <Grid item xs={6}>
-      <Box color="secondary.main">your reply
+      <Box color='secondary.main'>your reply
         <StarIcon color='secondary'/>
         </Box>
     </Grid>
@@ -49,8 +49,8 @@ function getData(state, props) {
     votes: optionTwo.votes.length,
     percentage: Math.round(optionTwo.votes.length*100/totalVotes)
   }
-  //TODO update
-  const authedUser = 'tylermcginnis'
+
+  const authedUser = state.authedUser
   const authedUserVote = optionOne.votes.includes(authedUser)
                         ? 1
                         :(optionTwo.votes.includes(authedUser)
@@ -65,32 +65,32 @@ export default function QuestionResults(props) {
 
   return (
     <Fragment>
-      <Typography className={classes.title} color="textSecondary" align='center'>
+      <Typography className={classes.title} color='textSecondary' align='center'>
         Would you rather
       </Typography>
-      <Divider variant="inset"/>
-      <Typography variant="h6" component="h2" align='center'>
+      <Divider variant='inset'/>
+      <Typography variant='h6' component='h2' align='center'>
         {q1.text}
         {authedUserVote===1 && renderYourReply()}
       </Typography>
-      <Typography variant="body1" component="h2" align='right'>
+      <Typography variant='body1' component='h2' align='right'>
         {q1.percentage} %
       </Typography>
-      <Typography variant="body1" component="h2" align='right'>
+      <Typography variant='body1' component='h2' align='right'>
         {q1.votes} out of {totalVotes}
       </Typography>
-      <Divider variant="inset"/>
-      <Typography variant="h6" component="h2" align='center'>
+      <Divider variant='inset'/>
+      <Typography variant='h6' component='h2' align='center'>
         {q2.text}
         {authedUserVote===2 && renderYourReply()}
       </Typography>
-      <Typography variant="body1" component="h2" align='right'>
+      <Typography variant='body1' component='h2' align='right'>
         {q2.percentage} %
       </Typography>
-      <Typography variant="body1" component="h2" align='right'>
+      <Typography variant='body1' component='h2' align='right'>
         {q2.votes} out of {totalVotes}
       </Typography>
-      <Divider variant="inset"/>
+      <Divider variant='inset'/>
     </Fragment>
   );
 }

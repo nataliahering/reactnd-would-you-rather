@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -13,7 +13,7 @@ function TabPanel(props) {
 
   return (
     <div
-      role="tabpanel"
+      role='tabpanel'
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
@@ -21,7 +21,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3}>
-          <Typography component="span">{children}</Typography>
+          <Typography component='span'>{children}</Typography>
         </Box>
       )}
     </div>
@@ -58,21 +58,21 @@ export default function Home() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="secondary">
+      <AppBar position='static' color='secondary'>
         <Tabs
           value={value}
           onChange={handleChange}
-          aria-label="simple tabs example"
-          indicatorColor="primary"
+          aria-label='simple tabs example'
+          indicatorColor='primary'
           >
-          <Tab label="Answered Questions" {...a11yProps(0)} />
-          <Tab label="Unanswered Questions" {...a11yProps(1)} />
+          <Tab label='Answered Questions' {...a11yProps(0)} />
+          <Tab label='Unanswered Questions' {...a11yProps(1)} />
         </Tabs>
       </AppBar>
-      <TabPanel component="div" value={value} index={0}>
+      <TabPanel component='div' value={value} index={0}>
         <PreviewQuestionList category='answered'/>
       </TabPanel>
-      <TabPanel component="div" value={value} index={1}>
+      <TabPanel component='div' value={value} index={1}>
         <PreviewQuestionList category='unanswered'/>
       </TabPanel>
     </div>

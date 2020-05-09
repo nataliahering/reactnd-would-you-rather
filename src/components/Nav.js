@@ -62,18 +62,18 @@ export default function Nav() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="primary">
+      <AppBar position='static' color='primary'>
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="secondary" aria-label="menu" onClick={handleClick}>
+          <IconButton edge='start' className={classes.menuButton} color='secondary' aria-label='menu' onClick={handleClick}>
             <MenuIcon />
           </IconButton>
           { isLoggedIn &&
             <Fragment>
-              <Typography variant="h6" className={classes.title}>
+              <Typography variant='h6' className={classes.title}>
                 {pageTitle}
               </Typography>
               <Menu
-                id="simple-menu"
+                id='simple-menu'
                 anchorEl={menuAnchorEl}
                 keepMounted
                 open={Boolean(menuAnchorEl)}

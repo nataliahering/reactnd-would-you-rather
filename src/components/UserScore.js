@@ -16,7 +16,7 @@ export default function UserScore(props) {
   const classes = useStyles();
 
   return (
-    <ListItem alignItems="flex-start">
+    <ListItem alignItems='flex-start'>
       <ListItemAvatar>
         <Avatar src={props.userScore.avatar} />
       </ListItemAvatar>
@@ -25,26 +25,26 @@ export default function UserScore(props) {
         secondary={
           <Fragment>
             <Typography
-              component="span"
-              variant="body2"
+              component='span'
+              variant='body2'
               className={classes.block}
-              color="textPrimary"
+              color='textPrimary'
             >
               Answered Questions: {props.userScore.numberOfAnswers}
             </Typography>
             <Typography
-              component="span"
-              variant="body2"
+              component='span'
+              variant='body2'
               className={classes.block}
-              color="textPrimary"
+              color='textPrimary'
             >
               Created Questions: {props.userScore.numberOfQuestions}
             </Typography>
             <Typography
-              component="span"
-              variant="body1"
+              component='span'
+              variant='body1'
               className={classes.block}
-              color="textPrimary"
+              color='textPrimary'
             >
               Score: {props.userScore.numberOfAnswers + props.userScore.numberOfQuestions}
             </Typography>

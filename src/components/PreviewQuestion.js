@@ -26,24 +26,24 @@ export default function PreviewQuestion(props) {
     );
 
   return (
-    <Link className={classes.link} to={`/question/${question.id}`}>
-      <ListItem alignItems="flex-start">
+    <Link className={classes.link} to={`/questions/${question.id}`}>
+      <ListItem alignItems='flex-start'>
         <ListItemText
           secondary={
             <Fragment>
               <Typography
-                component="span"
-                variant="body2"
+                component='span'
+                variant='body2'
                 className={classes.block}
-                color="textPrimary"
+                color='textPrimary'
               >
                 {question.author} asks, would you rather:
               </Typography>
               <Typography
-                component="span"
-                variant="body1"
+                component='span'
+                variant='body1'
                 className={classes.block}
-                color="textPrimary"
+                color='textPrimary'
               >
                 {question.optionOne.text} or {question.optionTwo.text} ?
               </Typography>

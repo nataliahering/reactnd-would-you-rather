@@ -59,13 +59,13 @@ export default function SignIn(props) {
   }
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component='main' maxWidth='xs'>
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component='h1' variant='h5'>
           Sign in
         </Typography>
         <form 
@@ -74,10 +74,10 @@ export default function SignIn(props) {
           noValidate
         >
           <FormControl className={classes.formControl}>
-            <InputLabel id="demo-simple-select-label">Select User</InputLabel>
+            <InputLabel id='demo-simple-select-label'>Select User</InputLabel>
             <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
+              labelId='demo-simple-select-label'
+              id='demo-simple-select'
               value={userName}
               onChange={handleChange}
             >
@@ -89,10 +89,10 @@ export default function SignIn(props) {
             </Select>
           </FormControl>
           <Button
-            type="submit"
+            type='submit'
             fullWidth
-            variant="contained"
-            color="primary"
+            variant='contained'
+            color='primary'
             className={classes.submit}
             disabled={!userName}
           >

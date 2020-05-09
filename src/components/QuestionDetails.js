@@ -8,7 +8,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Error404 from './Error404'
 import QuestionResults from './QuestionResults'
 import VoteQuestion from './VoteQuestion'
-import { isEmpty } from 'lodash'
 
 const useStyles = makeStyles({
   root: {
@@ -32,8 +31,7 @@ export default function QuestionDetails(props) {
 
     const { author } = state.questions[questionId]
     const { avatarURL: avatar } = state.users[author]
-    //TODO update
-    const authedUser = "tylermcginnis"
+    const authedUser = state.authedUser
     const hasReplied = state.users[authedUser].answers[questionId] != null
     
     return { result: { author, avatar, hasReplied }}
@@ -47,7 +45,7 @@ export default function QuestionDetails(props) {
     <Card className={classes.root}>
       <CardContent>
         <Avatar src={avatar} />
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography className={classes.title} color='textSecondary' gutterBottom>
           Asked by {author}
         </Typography>
         { hasReplied ? <QuestionResults id={questionId}/> : <VoteQuestion id={questionId}/>}

@@ -37,7 +37,7 @@ export default function LeaderBoard() {
         return (
           <Fragment key={userScore.id}>
             <UserScore userScore={userScore} />
-            <Divider variant="inset" component="li" />
+            <Divider variant='inset' component='li' />
           </Fragment>
         );
       })}

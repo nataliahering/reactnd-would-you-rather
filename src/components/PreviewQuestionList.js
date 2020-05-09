@@ -14,8 +14,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function filterQuestions({ questions, authedUser, category }) {
-  //TODO update
-  authedUser = 'tylermcginnis'
   let filteredQuestions = [];
   const propertiesToPick = ['id', 'timestamp'];
 
@@ -52,7 +50,7 @@ export default function PreviewQuestionList(props) {
         return (
           <Fragment key={q.id}>
             <PreviewQuestion id={q.id} />
-            <Divider variant="inset" component="li" />
+            <Divider variant='inset' component='li' />
           </Fragment>
         );
       })}

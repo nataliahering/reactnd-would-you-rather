@@ -25,16 +25,16 @@ export default function LogOut() {
   return (
     <div>
       <IconButton
-        aria-label="account of current user"
-        aria-controls="menu-appbar"
-        aria-haspopup="true"
+        aria-label='account of current user'
+        aria-controls='menu-appbar'
+        aria-haspopup='true'
         onClick={handleUserMenu}
-        color="inherit"
+        color='inherit'
       >
         <AccountCircle />
       </IconButton>
       <Menu
-        id="menu-appbar"
+        id='menu-appbar'
         anchorEl={userAnchorEl}
         anchorOrigin={{
           vertical: 'top',

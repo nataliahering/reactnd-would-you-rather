@@ -48,13 +48,13 @@ export default function VoteQuestion(props) {
   return (
     <Fragment>
       <form onSubmit={handleSubmit}>
-        <FormControl component="fieldset" className={classes.formControl}>
-          <FormLabel component="legend">Would you rather...</FormLabel>
-          <RadioGroup aria-label="quiz" name="quiz" onChange={handleRadioChange}>
-            <FormControlLabel value="optionOne" control={<Radio />} label={optionOne} />
-            <FormControlLabel value="optionTwo" control={<Radio />} label={optionTwo} />
+        <FormControl component='fieldset' className={classes.formControl}>
+          <FormLabel component='legend'>Would you rather...</FormLabel>
+          <RadioGroup aria-label='quiz' name='quiz' onChange={handleRadioChange}>
+            <FormControlLabel value='optionOne' control={<Radio />} label={optionOne} />
+            <FormControlLabel value='optionTwo' control={<Radio />} label={optionTwo} />
           </RadioGroup>
-          <Button type="submit" variant="contained" color="secondary">
+          <Button type='submit' variant='contained' color='secondary'>
             Submit
           </Button>
         </FormControl>
