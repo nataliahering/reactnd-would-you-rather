@@ -5,10 +5,13 @@ import { useSelector } from 'react-redux'
 export default function PrivateRoute({component: Component, ...rest}) {
   const isLoggedIn = useSelector(state => state.authedUser !== null)
   return (
-    <Route {...rest} render={props => (
+    <Route {...rest} render={(props) => (
       isLoggedIn ?
             <Component {...props} />
-        : <Redirect to='/signin' />
+        : <Redirect to={{
+          pathname: '/signin',
+          state: { from: props.location }
+        }} />
     )} />
   )
 }

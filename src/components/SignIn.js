@@ -44,6 +44,7 @@ export default function SignIn(props) {
   const userNames = useSelector(state => Object.keys(state.users))
   const [userName, setUserName] = useState('')
   const history = useHistory()
+  const { from } = props.location.state || { from: { pathname: '/home' } }
 
   const handleChange = (e) => {
     setUserName(e.target.value);
@@ -55,7 +56,7 @@ export default function SignIn(props) {
       return;
     }
     dispatch(setAuthedUser(userName));
-    history.push('/home')
+    history.push(from)
   }
 
   return (
