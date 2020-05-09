@@ -7,11 +7,9 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useHistory } from 'react-router-dom';
 import MenuItem from '@material-ui/core/MenuItem';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import Menu from '@material-ui/core/Menu';
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { removeAuthedUser } from '../actions/authedUser';
+import LogOut from './LogOut'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,9 +29,6 @@ export default function Nav() {
   const [menuAnchorEl, setMenuAnchorEl] = useState(null);
   const [pageTitle, setPageTitle] = useState('Home');
   const isLoggedIn = useSelector(state => state.authedUser !== null);
-  const [userAnchorEl, setUserAnchorEl] = React.useState(null);
-  const userMenuOpen = Boolean(userAnchorEl);
-  const dispatch = useDispatch();
 
   const closeMenu = () => {
     setMenuAnchorEl(null);
@@ -65,18 +60,6 @@ export default function Nav() {
     closeMenu()
   };
 
-  const handleUserMenu = (event) => {
-    setUserAnchorEl(event.currentTarget);
-  };
-
-  const handleUserMenuClose = () => {
-    setUserAnchorEl(null)
-  };
-
-  const handleLogOut = () => {
-    dispatch(removeAuthedUser())
-  }
-
   return (
     <div className={classes.root}>
       <AppBar position="static" color="primary">
@@ -100,34 +83,7 @@ export default function Nav() {
                 <MenuItem onClick={handleLeaderboardClicked}>Leaderboard</MenuItem>
                 <MenuItem onClick={handleAddQuestionClicked}>Add Question</MenuItem>
               </Menu>
-              <div>
-                <IconButton
-                  aria-label="account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={handleUserMenu}
-                  color="inherit"
-                >
-                  <AccountCircle />
-                </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={userAnchorEl}
-                  anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  open={userMenuOpen}
-                  onClose={handleUserMenuClose}
-                >
-                  <MenuItem onClick={handleLogOut}>Log out</MenuItem>
-                </Menu>
-              </div>
+              <LogOut />
             </Fragment>
           }
         </Toolbar>
