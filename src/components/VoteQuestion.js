@@ -25,7 +25,6 @@ export default function VoteQuestion(props) {
     const { id, optionOne: { text: optionOne }, optionTwo: { text: optionTwo } } = state.questions[props.id]
     return { id, optionOne, optionTwo }
   })
-  const [toHome, setToHome] = useState(false)
   const [selectedOption, setSelectedOption] = useState('')
 
   const handleSubmit = (e) => {
@@ -34,15 +33,10 @@ export default function VoteQuestion(props) {
       questionId: id,
       vote: selectedOption
     }))
-    setToHome(true)
   }
 
   const handleRadioChange = (e) => {
     setSelectedOption(e.target.value)
-  }
-
-  if (toHome === true) {
-    return <Redirect to='/' />
   }
 
   return (
@@ -54,7 +48,7 @@ export default function VoteQuestion(props) {
             <FormControlLabel value='optionOne' control={<Radio />} label={optionOne} />
             <FormControlLabel value='optionTwo' control={<Radio />} label={optionTwo} />
           </RadioGroup>
-          <Button type='submit' variant='contained' color='secondary'>
+          <Button type='submit' variant='contained' color='secondary' disabled={!selectedOption}>
             Submit
           </Button>
         </FormControl>
